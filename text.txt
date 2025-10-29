@@ -1,0 +1,33 @@
+Users
+    -> id
+    -> name
+    -> email
+    -> password
+    -> gender
+    -> profile
+    -> bio
+
+Categories
+    -> id
+    -> name
+    -> description
+
+Posts
+    -> id
+    -> title
+    -> description
+    -> picture
+    -> user_id
+    -> category_id
+
+Comments
+    -> id
+    -> comment
+    -> picture
+    -> user_id
+    -> post_id
+
+Reactions
+    -> reaction
+    -> user_id
+    -> post_id
