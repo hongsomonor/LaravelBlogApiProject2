@@ -25,7 +25,7 @@ class StorePostRequest extends FormRequest
             'title' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
             'picture' => 'nullable|image|mimes:png,jpg,jpeg,svg,gif,webp|max:15000',
-            'user_id' => 'required|exists:users,id',
+            // 'user_id' => 'required|exists:users,id', no need to vlaidate user_id cus check vai Auth::user();
             'category_id' => 'required|exists:categories,id'
         ];
     }

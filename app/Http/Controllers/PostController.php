@@ -22,13 +22,13 @@ class PostController extends Controller
 
         if($request->hasFile('picture')) {
             $picture = $request->file('picture');
-            $name = time(). '.' . $picture->getClientOriginalExtension();
-            $picture->move(public_path('upload/picture'),$name);
-            $data['picture'] = 'picture/' . $name;
+            // $name = time(). '.' . $picture->getClientOriginalExtension();
+            // $picture->move(public_path('upload/picture'),$name);
+            $path = $picture->store('public','post-pic');
+            $data['picture'] = $path;
         }
-
-        $data['user_id'] = $user->id;
         $post = Post::create($data);
+        $post->load(['user','category']);
 
         return response()->json(['post' => $post->only('id','title')]);
     }

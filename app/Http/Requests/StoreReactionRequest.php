@@ -23,7 +23,7 @@ class StoreReactionRequest extends FormRequest
     {
         return [
             'reaction' => 'required|string|in:like,love,care,angry,sad',
-            'user_id' => 'required|exists:users,id',
+            // 'user_id' => 'required|exists:users,id',
             'post_id' => 'required|exists:posts,id'
         ];
     }
