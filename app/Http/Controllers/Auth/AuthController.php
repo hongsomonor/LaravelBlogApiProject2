@@ -17,9 +17,8 @@ class AuthController extends Controller
 
         if($request->hasFile('profile')) {
             $profile = $request->file('profile');
-            $name = time(). '.' . $profile->getClientOriginalExtension();
-            $profile->move(public_path('upload/profile'),$name);
-            $data['profile'] = 'profile/' . $name;
+            $path = $profile->store('upload/user-profile','public');
+            $data['profile'] = $path ;
         }
 
         $data['password'] = Hash::make($request->password);

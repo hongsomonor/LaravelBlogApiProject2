@@ -18,7 +18,7 @@ class Comment extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class)->select('id','name'); // use $comment->load('user') show only id and name
+        return $this->belongsTo(User::class)->select('id','name','profile'); // use $comment->load('user') show only id and name
     }
 
     public function post()

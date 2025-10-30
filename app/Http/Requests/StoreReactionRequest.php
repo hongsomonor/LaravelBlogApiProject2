@@ -14,6 +14,16 @@ class StoreReactionRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        $postId = $this->route('post');
+        if($postId) {
+            $this->merge([
+                'post_id' => $postId
+            ]);
+        }
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

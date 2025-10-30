@@ -28,7 +28,7 @@ class CommentController extends Controller
 
         if($request->hasFile('picture')){
             $picture = $request->file('picture');
-            $path = $picture->store('comment-pic','public');
+            $path = $picture->store('upload/comment-pic','public');
             $data['picture'] = $path;
         }
 
