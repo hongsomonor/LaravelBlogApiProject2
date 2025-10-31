@@ -16,6 +16,10 @@ class Comment extends Model
         'post_id'
     ];
 
+    protected $casts = [
+        'post_id' => 'int'
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class)->select('id','name','profile'); // use $comment->load('user') show only id and name
