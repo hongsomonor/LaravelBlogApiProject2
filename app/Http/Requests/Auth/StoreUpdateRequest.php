@@ -24,7 +24,7 @@ class StoreUpdateRequest extends FormRequest
         return [
             'name' => 'sometimes|string|max:255',
             'gender' => 'sometimes|string|in:male,female',
-            'profile' => 'nullable|image|mimes:png,jpg,jpeg,svg,gif,webp',
+            'profile' => 'sometimes|image|mimes:png,jpg,jpeg,svg,gif,webp',
             'bio' => 'nullable|string|max:255'
         ];
     }
