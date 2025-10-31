@@ -50,6 +50,18 @@ class PostController extends Controller
         ]);
     }
 
+    public function comments(Post $post)
+    {
+        // Load the comments relationship, and eager load the user who wrote each comment
+        $comments = $post->comments()->with('user')->latest()->get();
+
+        return response()->json([
+            'success' => true,
+            'comments' => $comments,
+            'post_id' => $post->id
+        ]);
+    }
+
     public function update(StorePostUpdateRequest $request, Post $post)
     {
         $data = $request->validated();
